@@ -46,3 +46,5 @@ svn-commit.*
 tags
 TAGS
 
+#PHPSTORM
+.idea
