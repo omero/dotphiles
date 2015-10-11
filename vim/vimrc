@@ -8,6 +8,7 @@
 "
 
 " Call dotvim
+
 source ~/.vim/dotvim.vim
 
 if has("user_commands")
@@ -16,7 +17,7 @@ if has("user_commands")
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
   "let g:vundles=['general', 'git', 'hg', 'programming', 'completion', 'ruby', 'python', 'misc']
-  let g:vundles=['general', 'programming']
+  let g:vundles=['general', 'programming', 'php', 'javascript', 'html']
   let g:neocomplcache_enable_at_startup = 1
   " Load 'vundles'
   source ~/.vim/vundles.vim
@@ -25,4 +26,8 @@ if has("user_commands")
 endif
 
 " Customize to your needs...
+" If use fish shell
+set shell=/bin/bash
 
+" set background
+set background=dark

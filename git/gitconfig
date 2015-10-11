@@ -9,8 +9,8 @@
 
 # Global Config
 [user]
-    #name = "Omar Aguirre"
-    #email = "omersguchigu@gmail.com"
+    name = "Omar Aguirre"
+    email = "omersguchigu@gmail.com"
 
 [branch "master"]
     remote = origin

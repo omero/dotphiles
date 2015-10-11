@@ -8,10 +8,10 @@
 #
 
 #aacgain
-#autoconf
-#automake
+autoconf
+automake
 #bash
-#coreutils
+coreutils
 #ctags
 #gdbm
 #grc
@@ -25,14 +25,17 @@
 #ncdu
 #nmap
 #pcre
-#pkg-config
+pkg-config
 #pv
 #readline
 #reattach-to-user-namespace
 #tcptraceroute
-#tmux
+tmux
 #vnstat
-#wget
+wget
 #xz
 #zsh
-
+fish
+tree
+wget
+node
