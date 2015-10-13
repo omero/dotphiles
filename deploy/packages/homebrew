@@ -8,10 +8,10 @@
 #
 
 #aacgain
-autoconf
-automake
+install autoconf
+install automake
 #bash
-coreutils
+install coreutils
 #ctags
 #gdbm
 #grc
@@ -25,17 +25,32 @@ coreutils
 #ncdu
 #nmap
 #pcre
-pkg-config
+install pkg-config
 #pv
 #readline
 #reattach-to-user-namespace
 #tcptraceroute
-tmux
+install tmux
 #vnstat
-wget
+install wget
 #xz
 #zsh
-fish
-tree
-wget
-node
+install fish
+install tree
+install wget
+install node
+install mariadb
+tap homebrew/dupes
+tap homebrew/versions
+tap homebrew/homebrew-php
+#install php54
+#install php55
+install php56
+#install php54-opcache
+#install php54-xdebug
+#install php55-opcache
+#install php55-apcu
+#install php55-xdebug
+install php56-opcache
+install php56-apcu
+install php56-xdebug

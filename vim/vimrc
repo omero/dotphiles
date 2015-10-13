@@ -23,11 +23,48 @@ if has("user_commands")
   source ~/.vim/vundles.vim
   " Add extra bundles here...
   " Bundle 'reponame'
+  Bundle 'ryanoasis/vim-devicons'
+  Bundle 'lsdr/monokai'
+  Bundle 'scrooloose/nerdcommenter'
+  Bundle 'tomasr/molokai'
+  Bundle 'Chiel92/vim-autoformat'
 endif
+
 
 " Customize to your needs...
 " If use fish shell
 set shell=/bin/bash
-
+set encoding=utf8
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 " set background
 set background=dark
+
+"" Override colorscheme from base16
+let g:dotvim_colorscheme = 'molokai'
+
+let g:airline_theme='molokai'
+
+"Applying best practices for drupal vim more information on https://drupal.org/node/29325
+"Identation
+"set expandtab
+set tabstop=2
+set shiftwidth=2
+"set autoindent
+"set smartindent
+set shortmess=a
+set cmdheight=2
+let g:bufferline_echo=0
+
+"Syntx Highlighting
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup module
+    autocmd BufRead,BufNewFile *.module set filetype=php
+    autocmd BufRead,BufNewFile *.install set filetype=php
+    autocmd BufRead,BufNewFile *.test set filetype=php
+    autocmd BufRead,BufNewFile *.inc set filetype=php
+    autocmd BufRead,BufNewFile *.profile set filetype=php
+    autocmd BufRead,BufNewFile *.view set filetype=php
+    autocmd BufRead,BufNewFile *.scss set filetype=css
+  augroup END
+endif

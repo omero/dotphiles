@@ -741,7 +741,7 @@ if [[ -f $DIR/packages/homebrew ]]; then
   while read line
   do
     if [[ ! "$line" =~ (^#|^$) ]]; then
-      brew install $line
+      brew  $line
     fi
   done
 fi
