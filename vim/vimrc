@@ -17,7 +17,7 @@ if has("user_commands")
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
   "let g:vundles=['general', 'git', 'hg', 'programming', 'completion', 'ruby', 'python', 'misc']
-  let g:vundles=['general', 'programming', 'php', 'javascript', 'html']
+  let g:vundles=['general', 'programming', 'php', 'javascript', 'html', 'misc']
   let g:neocomplcache_enable_at_startup = 1
   " Load 'vundles'
   source ~/.vim/vundles.vim
@@ -28,6 +28,7 @@ if has("user_commands")
   Bundle 'scrooloose/nerdcommenter'
   Bundle 'tomasr/molokai'
   Bundle 'Chiel92/vim-autoformat'
+  Bundle 'kristijanhusak/vim-hybrid-material'
 endif
 
 
@@ -38,11 +39,10 @@ set encoding=utf8
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 " set background
 set background=dark
-
+set mouse=""
+set nonumber
 "" Override colorscheme from base16
-let g:dotvim_colorscheme = 'molokai'
-
-let g:airline_theme='molokai'
+let g:dotvim_colorscheme = 'hybrid_material'
 
 "Applying best practices for drupal vim more information on https://drupal.org/node/29325
 "Identation
@@ -72,7 +72,7 @@ endif
 map <C-t> :NERDTreeToggle<CR>
 "lightline.vim configurration
 let g:lightline = {
-      \ 'colorscheme': 'landscape',
+      \ 'colorscheme': 'jellybeans',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
