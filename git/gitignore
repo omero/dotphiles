@@ -43,8 +43,8 @@ Thumbs.db
 .svn/*
 *.swp
 svn-commit.*
-tags
-TAGS
+#tags
+#TAGS
 
 #PHPSTORM
 .idea
