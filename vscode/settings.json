@@ -1,0 +1,18 @@
+{
+  "workbench.colorTheme": "One Monokai",
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+  "workbench.startupEditor": "newUntitledFile",
+  "explorer.confirmDragAndDrop": false,
+  "editor.formatOnSave": false,
+  "window.zoomLevel": 0,
+  "editor.tabSize": 2,
+  "[javascript]": {
+      "editor.formatOnSave": true
+  },
+  "[json]": {
+      "editor.formatOnSave": true
+  },
+  "emmet.includeLanguages":
+  { "javascript": "javascriptreact", }
+}
