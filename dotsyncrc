@@ -30,6 +30,7 @@ ssh
 vim/dotvim:.vim
 vim/vimrc
 #vim/gvimrc
+zsh/zshrc
 [endfiles]
 
 # Hosts to sync
