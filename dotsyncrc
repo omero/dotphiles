@@ -35,6 +35,7 @@ config/conky:.config/conky
 config/dunst:.config/dunst
 config/gtk-3.0:.config/gtk-3.0
 config/terminator:.config/terminator
+config/polybar:.config/polybar
 
 [endfiles]
 
