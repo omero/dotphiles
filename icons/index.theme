@@ -1,4 +1,4 @@
 [Icon Theme]
-Name=Default
-Comment=Default Cursor Theme
-Inherits=capitaine-cursors
+Name=Arc
+Inherits=Moka,Adwaita,gnome,hicolor
+Comment=Arc Icon theme

@@ -37,6 +37,7 @@ config/gtk-3.0:.config/gtk-3.0
 config/terminator:.config/terminator
 config/polybar:.config/polybar
 config/rofi:.config/rofi
+config/qt5ct:.config/qt5ct
 
 [endfiles]
 
