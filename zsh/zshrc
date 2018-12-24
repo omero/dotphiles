@@ -118,3 +118,10 @@ if [ -f '/home/omers/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/omers/.goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/omers/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/omers/.google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# Composer setup
+export PATH=~/vendor/bin:$PATH
+
+
+export PATH=~/.gem/ruby/2.5.0/bin:$PATH

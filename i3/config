@@ -31,7 +31,7 @@ floating_modifier $mod
 bindsym $mod+Return exec tilix
 
 # kill focused window
-bindsym $mod+Shift+x kill
+bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id dmenu_recency
@@ -43,12 +43,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-#exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio --start
-exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
-exec --no-startup-id blueman-applet
+exec --no-startup-id start-pulseaudio-x11
 bindsym $mod+Ctrl+m exec pavucontrol 
 
 ################################################################################################
@@ -72,12 +68,13 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-#bindsym $alt+Tab exec rofi -show window
-bindsym $alt+Tab exec $HOME/.config/rofi/alt-tab.sh
 
 # focus_follows_mouse no
+# window switching.
+bindsym $alt+Tab exec --no-startup-id exec rofi -show window -font "SFNS Display 18" -lines 6 -i -separator-style solid -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab
+# app launcher
+bindsym $alt+space exec --no-startup-id exec rofi -show drun -lines 3 -eh 3 -width 100 -padding 500 -font "SFNS Display 18"
 
-bindsym $alt+space exec $HOME/.config/rofi/rofr.sh -r
 
 # change focus
 bindsym $mod+j focus left
@@ -284,15 +281,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-#bluetooth
-exec --no-startup-id blueman-applet
 #polybar 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -396,4 +391,8 @@ mode "$mode_gaps_outer" {
 }
 
 
+exec --no-startup-id xinput --set-prop 11 "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id xinput --set-prop 14 "libinput Natural Scrolling Enabled" 1
+
+#exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output HDMI-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-3 --off --output DP2 --off
+exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-3 --off --output DP2 --off

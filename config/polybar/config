@@ -5,8 +5,8 @@ accent = #fba922
 enable-ipc = true
 width = 100%
 height = 27
-#monitor = eDP
-#monitor-fallback = eDP
+monitor = HDMI-1-1
+monitor-fallback = eDP1
 
 ;background = #222
 background = #1f1f1f
@@ -33,7 +33,7 @@ font-3 = Siji:pixelsize=10;1
 
 modules-left = powermenu sps sp spp sn spacer spotify
 modules-center = xwindow
-modules-right = volume wireless-network wired-network battery clock
+modules-right = volume wireless-network wired-network clock
 
 wm-restack = bspwm
 
@@ -43,8 +43,8 @@ tray-position = right
 bottom = true
 width = 100%0
 height = 27
-#monitor = eDP
-#monitor-fallback = eDP
+monitor = HDMI-1-1
+monitor-fallback = eDP1
 
 background = #1c1c1c
 foreground = #eefafafa
@@ -69,7 +69,7 @@ font-2 = Material Icons:style=Regular:pixelsize=10;-1
 font-3 = Unifont:size=5;0
 
 modules-left = i3
-modules-right = backlight cpu memory clock
+modules-right = xbacklight battery cpu memory clock
 
 wm-restack = i3
 
@@ -82,27 +82,37 @@ label-mounted = %{F#e60053}%percentage_used%%%{F-} used of %mountpoint%
 
 [module/xbacklight]
 type = internal/xbacklight
-output = eDP
-format = <ramp> <bar>
 
-ramp-0 = 
-ramp-0-foreground = #666
-ramp-1 = 
-ramp-1-foreground = #999
-ramp-2 = 
-ramp-2-foreground = #fff
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
+output = eDP1
 
-bar-width = 12
+; Create scroll handlers used to set the backlight value
+; Default: true
+enable-scroll = false
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <label>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
 bar-indicator = |
-bar-indicator-font = 6
-bar-indicator-foreground = #bbffffff
 bar-fill = ─
-bar-fill-font = 6
-bar-fill-foreground = #9f78e1
 bar-empty = ─
-bar-empty-font = 6
-bar-empty-foreground = #44
-
 
 [module/backlight]
 type = internal/backlight
@@ -229,7 +239,7 @@ bar-used-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
-interface = wlp3s0
+interface = wlp2s0
 interval = 2.0
 ping-interval = 10
 
@@ -250,14 +260,14 @@ animation-packetloss-1 = 
 animation-packetloss-1-foreground = ${bar/top.foreground}
 animation-packetloss-framerate = 500
 
-[module/wired-network]
-type = internal/network
-interface = enp2s0
-interval = 2.0
+# [module/wired-network]
+# type = internal/network
+# interface = enp2s0
+# interval = 2.0
 
-label-connected =   %local_ip%
-label-disconnected = Ethernet disconnected
-label-disconnected-foreground = #66
+# label-connected =   %local_ip%
+# label-disconnected = Ethernet disconnected
+# label-disconnected-foreground = #66
 
 [module/clock]
 type = internal/date
@@ -298,13 +308,78 @@ ramp-headphones-foreground = #9f78e1
 [module/battery]
 type = internal/battery
 full-at = 98
-format-charging = %{T3}Battery <label-charging> %{T-}
-format-discharging = %{T3}Battery <label-discharging> %{T-}
-;format-full = %{T3}Battery <label-full>
-label-charging-font = 3
-label-discharging-font = 3
-label-full =
-;label-full-font = 3
+
+battery = BAT0
+adapter = AC0
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Charging %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = Discharging %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-full = Fully charged
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
 
 [module/xwindow]
 type = internal/xwindow
