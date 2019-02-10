@@ -125,3 +125,12 @@ export PATH=~/vendor/bin:$PATH
 
 
 export PATH=~/.gem/ruby/2.5.0/bin:$PATH
+
+export PATH=~/.npm-global/bin:$PATH
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/omers/.npm-global/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/omers/.npm-global/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/omers/.npm-global/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/omers/.npm-global/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
